@@ -1,0 +1,37 @@
+{
+  "name": "agent-skills",
+  "version": "0.1.0",
+  "description": "A curated collection of reusable skills for coding agents.",
+  "skills": [
+    {
+      "name": "powershell-command-safety",
+      "path": "skills/powershell-command-safety",
+      "kind": "maintained-here",
+      "license": "MIT"
+    },
+    {
+      "name": "ui-craft",
+      "path": "skills/ui-craft",
+      "kind": "third-party",
+      "upstream": "https://github.com/educlopez/ui-craft",
+      "upstreamCommit": "ceecc8e1fb0c2befda73da996435900d6dd0c1ac",
+      "license": "MIT"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "path": "skills/ui-ux-pro-max",
+      "kind": "third-party",
+      "upstream": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "upstreamCommit": "91c193ac059b487d13ce535c7015b021eb71c841",
+      "license": "MIT"
+    },
+    {
+      "name": "web-design-guidelines",
+      "path": "skills/web-design-guidelines",
+      "kind": "third-party",
+      "upstream": "https://github.com/vercel-labs/web-interface-guidelines",
+      "upstreamCommit": "e3d624baaf29dc1fc645aff3e38f03e564d2d6b1",
+      "license": "MIT"
+    }
+  ]
+}

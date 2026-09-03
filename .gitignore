@@ -1,0 +1,12 @@
+# Local agent/browser state
+.codex/
+.claude/
+.cursor/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# OS/editor files
+.DS_Store
+Thumbs.db

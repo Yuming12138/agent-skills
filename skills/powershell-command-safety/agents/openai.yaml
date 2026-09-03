@@ -1,0 +1,4 @@
+interface:
+  display_name: "PowerShell Command Safety"
+  short_description: "Safe PowerShell and shell-boundary guidance"
+  default_prompt: "Use $powershell-command-safety to construct and verify these PowerShell commands safely."
