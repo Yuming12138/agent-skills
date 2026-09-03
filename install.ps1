@@ -3,7 +3,6 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$Destination,
 
-    [ValidateSet('powershell-command-safety', 'ui-craft', 'ui-ux-pro-max', 'web-design-guidelines')]
     [string[]]$Skill
 )
 
@@ -11,8 +10,15 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot 'skills')).Path
+$allowedSkills = @('powershell-command-safety', 'ui-craft', 'ui-ux-pro-max', 'web-design-guidelines')
 $selectedSkills = if ($Skill -and $Skill.Count -gt 0) {
-    @($Skill)
+    # Accept both -Skill ui-craft,ui-ux-pro-max and a native argument array.
+    $requestedSkills = @($Skill | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+    $invalidSkills = @($requestedSkills | Where-Object { $_ -notin $allowedSkills })
+    if ($invalidSkills.Count -gt 0) {
+        throw "Unknown skill name(s): $($invalidSkills -join ', '). Allowed names: $($allowedSkills -join ', ')"
+    }
+    $requestedSkills
 } else {
     @('powershell-command-safety', 'ui-craft', 'ui-ux-pro-max', 'web-design-guidelines')
 }
